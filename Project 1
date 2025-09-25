@@ -1,1 +1,38 @@
 Simple Calculator
+from tkinter import *
+def click(event):
+    global scvalue
+    text = event.widgent.cget("text")
+    print(Text)
+    if Text == "=":
+        pass
+    elif Text == "c":
+        pass
+    else:
+        scvalue.set(scvalue.get() + text)
+        screen.update()
+
+root = Tk()
+root.geometry("644*900")
+root.title("Calculator 1st Project")
+root.wm_iconbitmap("l.ico")
+
+scvalue = StringVar()
+scvalue.set("")
+screen = Entry(root, textvar=scvalue, font="lucida 40 bold")
+screen.pack(fill=X, ipadx=8, pady=10, padx=10)
+
+f = Frame(root, bg="grey")
+b =Button(f, text="9",padx=28, pady=22, font="lucida 35 bold")
+b.pack(side=LEFT,padx=18, pady=12)
+b.bind("<Button-1>", click)
+b =Button(f, text="8",padx=28, pady=22, font="lucida 35 bold")
+b.pack(side=LEFT,padx=18, pady=12)
+b.bind("<Button-1>", click)
+b =Button(f, text="7",padx=28, pady=22, font="lucida 35 bold")
+b.pack(side=LEFT,padx=18, pady=12)
+b.bind("<Button-1>", click)
+f.pack()
+
+
+root.mainloop()
