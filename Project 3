@@ -1,5 +1,6 @@
 Whether App Using API
-  import requests
+
+import requests
 
 city_name = 'Mumbai' #We can Use also city_name = input("Enter City: ")
 API_Key = '893c5086208412ae5ceb8aefbb562ec9'
