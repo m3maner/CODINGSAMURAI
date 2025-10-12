@@ -1,0 +1,67 @@
+Number Guessing Game with GUI
+
+from tkinter import *
+import random
+
+ws = Tk()
+ws.title("Python Guides")
+ws.geometry('600x400')
+ws.config(bg="#5671A6")
+
+ranNum = random.randint(0, 10)
+chance = 3
+var = IntVar()
+disp = StringVar()
+
+def check_guess():
+    global ranNum
+    global chance
+    usr_ip = var.get()
+    if chance > 0:
+        if usr_ip == ranNum:
+            msg = f"You Won! {ranNum} is the right answer."
+        elif usr_ip > ranNum:
+            chance -= 1
+            msg = f"{usr_ip} is greater. You have {chance} attemt left."
+        elif usr_ip < ranNum:
+            chance -= 1
+            msg = f"{usr_ip} is smaller. You have {chance} attemt left."
+        else:
+            msg = f"Something Went Wrong!"
+    else:
+        msg= f"You Lost! You have {chance} attemp left"
+
+    disp.set(msg)
+
+Label(
+    ws,
+    text="Number Guessing Game",
+    font=("sans-serif", 20),
+    relief=SOLID,
+    padx=10,
+    pady=10,
+    bg= "#F27D16"
+).pack(pady=(10,0))
+
+Entry(
+    ws,
+    textvariable=var,
+    font=("sans-serif", 18)
+).pack(pady=(60, 10))
+Button(
+    ws,
+    textvariable=disp,
+    bg="#5671A6",
+    font=("sans-serif", 14),
+    command=check_guess
+).pack(pady=(20,0))
+
+Label(
+    ws,
+    textvariable=disp,
+    bg="#5671A6",
+    font=("sans-serif", 14)
+).pack(pady=(20,0))
+
+
+ws.mainloop()
